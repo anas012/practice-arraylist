@@ -1,5 +1,6 @@
 package com.example.arraylist;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -15,14 +16,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    ListView list=findViewById(R.id.testlist);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button btn=findViewById(R.id.addnamebtn);
         EditText name=findViewById(R.id.plaintext1);
-        ListView list=findViewById(R.id.testlist);
+
         ArrayList<String>friendslist=new ArrayList<String >();
         friendslist.add("frnd1");
         friendslist.add("frnd2");
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                Log.i("you selected",friendslist.get(i));
+
+                AlertDialog.Builder dialog=new AlertDialog.Builder(list.this);
             }
         });
     }
