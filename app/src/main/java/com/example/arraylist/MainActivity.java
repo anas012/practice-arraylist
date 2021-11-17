@@ -3,7 +3,9 @@ package com.example.arraylist;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
                 String a=name.getText().toString();
             friendslist.add(a);
             arrayAdapter.notifyDataSetChanged();
+            }
+        });
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Log.i("you selected",friendslist.get(i));
             }
         });
     }
